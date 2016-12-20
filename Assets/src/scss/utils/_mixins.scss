@@ -1,0 +1,139 @@
+﻿@mixin bp($width, $minmax: min) {
+  @media screen and (#{$minmax}-width: $width) {
+      @content;
+  }
+}
+
+// Position
+@mixin abs($top: 0, $right: $top, $bottom: $top, $left: $top) {
+  position:absolute;
+  top:$top; right:$right; bottom:$bottom; left:$left;
+}
+
+@mixin fxd($top:0, $right: $top, $bottom: $top, $left: $top) {
+  position:fixed;
+  top:$top; right:$right; bottom:$bottom; left:$left;
+}
+
+@mixin hide-fake {
+    width: 0!important; height: 0!important;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: -5;
+
+}
+
+// Type
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+@mixin h {
+	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { @content; }
+}
+
+@mixin reset-space {
+    margin:0;
+    padding:0;
+}
+
+@mixin reset-list {
+    @include reset-space;
+    &>li { 
+        @include reset-space; 
+        display: inline;
+    }
+
+    list-style: none;
+}
+
+// Dimensions
+@mixin square($size) {
+	line-height:$size;
+	height:$size;
+	width:$size;
+	display:block;
+	text-align:center;
+}
+
+
+@mixin size($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin states($self: false, $hoverClass: false) {
+    @if $self == true {
+        &, &:focus, &:active, &:hover{
+            @content;
+        }
+    } 
+
+    @else {
+        &:focus, &:active, &:hover{
+            @content;
+        }
+    }
+}
+
+@mixin color-hover($color) {
+    color: $color;
+
+    &:hover, &:active, &:focus {
+        color: darken($color, 15%);
+    }
+}
+
+@mixin container($size: $container, $align: true) {
+    max-width: $size;
+    margin: auto;
+
+    @if $align == left {
+        margin: 0;
+    }
+
+    @if $align == right {
+        margin: 0;
+        margin-left: auto;
+    }
+}
+
+@mixin container-spacing {
+    padding: $space-xs;
+
+    @include bp($screen-sm) {
+        padding: $space-md;
+    }
+
+    @include bp($screen-md) {
+        padding: $space-xl;
+    }
+
+    @include bp($screen-lg) {
+        padding: $space-xxl;
+    }
+}
+
+@mixin middle-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+
+@mixin centralize {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin centralize-v {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
