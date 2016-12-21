@@ -1,0 +1,51 @@
+
+header{
+    background-image: url(../../img/header-img.png);
+    background-size: cover;
+    min-height: 80vh;
+    background-position: center;
+}
+
+.main-nav{
+    margin-top: -15px;
+    background-color: white;
+    position: relative;
+    text-align: center;
+
+    &:after{
+        content: "";
+        @include abs();
+        top: auto;
+        bottom: -20px;
+        height: 20px;
+        background-image: url(../../img/nav-skewy.png);
+        background-size: auto 100%;
+    }
+
+    a{
+        text-decoration: none;
+        font-family: $font-display;
+        font-size: 1.4em;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    li{
+        display: inline-block;
+        padding: 15px 10px 5px 10px;
+        min-width: 12%;
+    }
+}
+
+.header-buttons{
+    @include centralize;
+    top: 44%;
+    text-align: center;
+
+    img{
+        width: 450px;
+        margin-bottom: 40px;
+        display: inline-block;
+        max-width: 100%;
+    }
+}
