@@ -63,6 +63,7 @@ $btn-types:
 
   .btn-#{$name} {
     background: $bg-color;
+    background-size: cover;
     color: $txt-color;
 
     @include states {

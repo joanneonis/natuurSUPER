@@ -1,0 +1,43 @@
+
+
+.share{
+    text-align: center;
+    padding: 50px 30px;
+
+    .fa-round{
+        margin-left: 10px;
+    }
+}
+
+.fa.fa-round{
+    background-color: #ccc;
+    border-radius: 50px;
+    font-size: 1em;
+    line-height: 2.5em;
+    text-align: center;
+    @include size(2.5em);
+    color: white;
+    text-decoration: none;
+}
+
+$social-types:
+//  Name            // Background       
+    facebook        #1e62a8,
+    twitter         #1fb9ef,
+    youtube         #ff3634,
+    pinterest       #ea2523;
+
+
+@each $type in $social-types {
+  $name:        nth($type, 1);
+  $bg-color:    nth($type, 2);
+
+  .fa-round.fa-#{$name}{
+      background-color: $bg-color;
+  }
+
+}
+
+
+
+
