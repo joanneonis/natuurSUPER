@@ -1,0 +1,26 @@
+
+
+.zakelijk {
+    min-height: 50vh;
+    text-align: center;
+    position: relative;
+    background-image: url(../../img/leaf-big.jpg);
+    background-size: cover;
+    
+    p{
+        color:white;
+    }
+
+    @include h{
+        color: white;
+    }
+
+    .center{
+        @include centralize;
+        padding: 50px;
+
+        @include bp(650px, max){
+            width: 100%;
+        }
+    }
+}

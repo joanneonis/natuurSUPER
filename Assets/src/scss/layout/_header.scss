@@ -4,13 +4,22 @@ header{
     background-size: cover;
     min-height: 80vh;
     background-position: center;
+    position: relative;
+    
+    &:after{
+        content: "";
+        @include abs();
+        bottom: 0;
+        top: auto;
+        height: 40px;
+        background-image: url(../../img/header-skewy.png);
+        background-size: auto 100%;
+    }
 }
 
 .main-nav{
-    margin-top: -15px;
     background-color: white;
     position: relative;
-    text-align: center;
 
     &:after{
         content: "";
@@ -30,22 +39,28 @@ header{
         letter-spacing: 1px;
     }
 
+    ul {
+        max-width: 960px;
+        margin: auto;
+    }
+
     li{
         display: inline-block;
         padding: 15px 10px 5px 10px;
-        min-width: 12%;
+        min-width: 15%;
     }
 }
 
 .header-buttons{
     @include centralize;
-    top: 44%;
+    width: 100%;
     text-align: center;
 
     img{
         width: 450px;
-        margin-bottom: 40px;
+        padding: 50px;
         display: inline-block;
         max-width: 100%;
     }
 }
+

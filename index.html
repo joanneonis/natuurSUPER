@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./Assets/dist/css/app.css">
     <link rel="stylesheet" href="./styleGlenn.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <script src="https://use.fontawesome.com/90651204eb.js"></script>
+    <link rel="stylesheet" href="./bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
 <body>
 
@@ -24,9 +26,97 @@
            <img src="./Assets/img/logo-white.png" alt="logo NatuurSUPER">
            <br>
             <a href="#" class="btn btn-primary">Start buurttuin</a>
-            <a href="#" class="btn btn-tertiary">informatie</a>
+            <a href="#" class="btn btn-transparent">informatie</a>
        </div>
    </header>
+
+   <article class="home-section personal">
+       <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+       <div class="user-text">
+           <h3>Marije van der Sar</h3>
+           <span class="sub-title">Oprichter en directrisse</span>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem sequi repellat nisi doloribus, voluptatibus temporibus quidem impedit sapiente qui laudantium voluptates error labore obcaecati, explicabo reprehenderit earum aliquam molestias.</p>
+           <a href="#" class="btn btn-link btn-whatsapp"><span class="fa fa-whatsapp"></span> Stel me een vraag</a>
+       </div>
+   </article>
+
+   <div class="leafs-side"></div>
+
+   <article class="home-section">
+       <div class="inner">
+           <div class="text">
+               <h2>Kent u ook zo'n gebied?</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cum officiis debitis, ut earum temporibus. Debitis obcaecati suscipit, consectetur dolorem animi, quis, inventore sed dignissimos quas eveniet nisi repellendus omnis.</p>
+               <a href="#" class="btn btn-secondary">Start tuin</a>
+               <a href="#" class="btn btn-tertiary">Meer info</a>
+           </div>
+           <!--<div class="video">
+               <iframe src="http://www.youtube.com/embed/G2Kfl34OABE" frameborder="0"></iframe>
+           </div>-->
+           <div class="image">
+               <img class="big" src="./Assets/img/braak.png" alt="Braakliggend terrein">
+           </div>
+       </div>
+   </article>
+
+   <article class="home-section buurttuin-slider">
+       <h2>Buurttuinen</h2>
+       <div class="owl-carousel">
+            <div class="item">
+                <img src="./Assets/img/buurttuinen/1.png" alt="Buurrtuin Oss">
+                <h4>BergbOSS</h4><span>Oss</span>
+                <div class="user user-xs">
+                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
+            </div>
+            <div class="item">
+                <img src="./Assets/img/buurttuinen/2.png" alt="Buurrtuin Oss">
+                <h4>BergbOSS</h4><span>Oss</span>
+                <div class="user user-xs">
+                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
+            </div>
+            <div class="item">
+                <img src="./Assets/img/buurttuinen/3.png" alt="Buurrtuin Oss">
+                <h4>BergbOSS</h4><span>Oss</span>
+                <div class="user user-xs">
+                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
+            </div>
+        </div>  
+   </article>
+   <article class="zakelijk">
+       <div class="center">
+           <h2>zakelijk</h2>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat deserunt ducimus ad aperiam nobis iusto culpa harum quisquam voluptatibus cum eius ipsam, atque, cupiditate facilis quos et, dolores a rerum.</p>
+           <a href="#" class="btn btn-primary">Start buurttuin</a>
+            <a href="#" class="btn btn-transparent">informatie</a>
+       </div>
+   </article>
+
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+   <script src="./bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        }
+    })
+    </script>
 
 </body>
 </html>

@@ -27,7 +27,8 @@ $btn-types:
 //  Name       // Background                        Text          Outline  
     primary    url(../../img/strawberry.jpg)      white         false,
     secondary  url(../../img/leaf.jpg)            white         false,
-    tertiary   #ebebeb                          gray       true;
+    tertiary   #ebebeb                          gray       true,
+    transparent   #ebebeb                          white       true;
  
 
 .btn-block {
@@ -71,15 +72,30 @@ $btn-types:
 
     // outline style
     @if $outline == true {
-        color: $bg-color;
+        color: $txt-color;
         box-shadow: inset 0 0 0 2px $bg-color;
         background-color: transparent;
 
         @include states(null, true) {
-            color: white;
-            background: rgba($bg-color, .5);
+            color: $txt-color;
+            background: rgba($bg-color, .3);
             box-shadow: inset 0 0 0 2px $bg-color, $shadow;
         }
     }
   }
+}
+
+.btn .fa{
+    font-size: 170%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.btn-link {
+    padding: 0;
+}
+
+.btn-whatsapp{
+    color: #7ec243;
 }

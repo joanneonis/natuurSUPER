@@ -1,0 +1,32 @@
+
+.buurttuin-slider{    
+    .item{
+        .user-xs{display: none}
+
+        h4{
+            display: inline;    
+            margin-right: 7px;
+        }
+
+        img{margin-bottom: 10px;}
+
+        @include bp(650px){
+            .user-xs {
+                display: block;
+                width: 50px;
+                float: left;
+                margin-right: 20px;
+            }
+
+            p {
+                float: left;
+                width: calc(100% - 70px);
+            }
+        }
+    }
+
+    .owl-carousel {
+        width: calc(100vw)!important;
+    }
+}
+
