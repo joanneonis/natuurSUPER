@@ -1,14 +1,33 @@
 
-.buurttuin-slider{    
-    .item{
-        .user-xs{display: none}
+.buurttuin-slider{   
+    &-container{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        @include clearfix;
+    }
+    .owl-carousel {
+        width: calc(100vw)!important;
+    }
+}
+
+.buurttuin{
+    text-decoration: none;
+    
+        .user-xs{
+            display: none; 
+
+            img{
+                width: 100%;
+            }
+        }
 
         h4{
             display: inline;    
             margin-right: 7px;
         }
 
-        img{margin-bottom: 10px;}
+        img{margin-bottom: 10px; width: 100%;}
 
         @include bp(650px){
             .user-xs {
@@ -25,8 +44,12 @@
         }
     }
 
-    .owl-carousel {
-        width: calc(100vw)!important;
+.buurttuin-lijst{
+    margin: 0 -10px;
+
+    .buurttuin{
+        width: 50%;
+        float: left;
+        padding: 10px;
     }
 }
-

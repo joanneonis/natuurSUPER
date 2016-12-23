@@ -1,5 +1,5 @@
 
-header{
+.home-header{
     background-image: url(../../img/header-img.png);
     background-size: cover;
     min-height: 80vh;
@@ -29,6 +29,7 @@ header{
         height: 20px;
         background-image: url(../../img/nav-skewy.png);
         background-size: auto 100%;
+        z-index: 2;
     }
 
     a{
@@ -47,7 +48,21 @@ header{
     li{
         display: inline-block;
         padding: 15px 10px 5px 10px;
-        min-width: 15%;
+        min-width: 13%;
+    }
+}
+
+
+.logo {
+    width: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -6px;
+    margin-bottom: -5px;
+
+    img {
+        width: 100%;
+        height: auto;
     }
 }
 

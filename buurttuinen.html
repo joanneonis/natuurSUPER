@@ -11,7 +11,7 @@
 </head>
 <body>
 
-   <header class="home-header">
+   <header>
        <nav class="main-nav">
            <ul class="clean-list">
                <li><a class="logo" href="./index.html"><img src="./Assets/img/logo-green.png" alt="Logo NatuurSUPER"></a></li>
@@ -23,46 +23,13 @@
                <li><a href="#">Nieuws</a></li>
            </ul>
        </nav>
-       <div class="header-buttons">
-           <img src="./Assets/img/logo-white.png" alt="logo NatuurSUPER">
-           <br>
-            <a href="#" class="btn btn-primary">Start buurttuin</a>
-            <a href="#" class="btn btn-transparent">informatie</a>
-       </div>
    </header>
 
-   <article class="home-section personal">
-       <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
-       <div class="user-text">
-           <h3>Marije van der Sar</h3>
-           <span class="sub-title">Oprichter en directrisse</span>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis exercitationem sequi repellat nisi doloribus, voluptatibus temporibus quidem impedit sapiente qui laudantium voluptates error labore obcaecati, explicabo reprehenderit earum aliquam molestias.</p>
-           <a href="#" class="btn btn-link btn-whatsapp"><span class="fa fa-whatsapp"></span> Stel me een vraag</a>
-       </div>
-   </article>
-
-   <div class="leafs-side"></div>
-
+   <div id="map"></div>
+<div class="buurttuin-slider-container">
    <article class="home-section">
-       <div class="inner">
-           <div class="text">
-               <h2>Kent u ook zo'n gebied?</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cum officiis debitis, ut earum temporibus. Debitis obcaecati suscipit, consectetur dolorem animi, quis, inventore sed dignissimos quas eveniet nisi repellendus omnis.</p>
-               <a href="#" class="btn btn-secondary">Start tuin</a>
-               <a href="#" class="btn btn-tertiary">Meer info</a>
-           </div>
-           <!--<div class="video">
-               <iframe src="http://www.youtube.com/embed/G2Kfl34OABE" frameborder="0"></iframe>
-           </div>-->
-           <div class="image">
-               <img class="big" src="./Assets/img/braak.png" alt="Braakliggend terrein">
-           </div>
-       </div>
-   </article>
-
-   <article class="home-section buurttuin-slider">
        <h2>Buurttuinen</h2>
-       <div class="owl-carousel">
+       <div class="buurttuin-lijst">
             <a href="#" class="buurttuin">
                 <img src="./Assets/img/buurttuinen/1.png" alt="Buurrtuin Oss">
                 <h4>BergbOSS</h4><span>Oss</span>
@@ -87,8 +54,9 @@
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
             </a>
-        </div>  
+            </div>
    </article>
+</div>
    <article class="zakelijk">
        <div class="center">
            <h2>zakelijk</h2>
@@ -161,27 +129,138 @@
        </div>
    </footer>
 
-    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-   <script src="./bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+       
     <script>
-        $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        responsive:{
-            0:{
-                items:2
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:3
+      function initMap() {
+        var centerlocation = {lat: 51.196074, lng: 5.200653};
+        var DenBosch = {lat: 51.697816, lng: 5.303675};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: centerlocation,
+        styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#878787"
             }
-        }
-    })
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#fbfbfb"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": "-11"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#d1ef93"
+            },
+            {
+                "lightness": "65"
+            },
+            {
+                "weight": "0.26"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": "61"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#d9f6fc"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+        });
+
+
+        
+        var marker = new google.maps.Marker({
+          position: DenBosch,
+          map: map
+        });
+      }
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsYeOZ8MBS4Ss6EuaB3sSaagEsS3ZBl_E&callback=initMap"></script>
 
 </body>
 </html>
+
+
+
+
+
+  
