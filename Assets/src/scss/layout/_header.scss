@@ -38,6 +38,23 @@
         font-size: 1.4em;
         font-weight: bold;
         letter-spacing: 1px;
+        position: relative;
+
+        &:not(.logo):after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            height: 0px;
+            background: $brand-secondary;
+            width: 100%;
+            left: 0;
+            z-index: 0;
+            opacity: .4;
+            transition: height .2s;
+        }
+        &:hover:after,&.active:after{
+            height: 10px;
+        }
     }
 
     ul {

@@ -16,9 +16,13 @@
     
         .user-xs{
             display: none; 
+            border-radius: 50px;
+            overflow: hidden;
+            height: 50px;
 
             img{
                 width: 100%;
+                -webkit-transform-style: flat!important;
             }
         }
 

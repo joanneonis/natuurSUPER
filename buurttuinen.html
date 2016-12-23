@@ -16,11 +16,11 @@
            <ul class="clean-list">
                <li><a class="logo" href="./index.html"><img src="./Assets/img/logo-green.png" alt="Logo NatuurSUPER"></a></li>
                <li><a href="#">NatuurSUPER</a></li>
-               <li><a href="buurttuinen.html">Buurttuinen</a></li>
+               <li><a class="active" href="buurttuinen.html">Buurttuinen</a></li>
                <li><a href="#">Start tuin</a></li>
-               <li><a href="#">Volg ons</a></li>
                <li><a href="#">Samenwerken</a></li>
-               <li><a href="#">Nieuws</a></li>
+               <li><a href="#">Volg ons</a></li>
+               <li><a href="#">Contact</a></li>
            </ul>
        </nav>
    </header>
@@ -34,15 +34,25 @@
                 <img src="./Assets/img/buurttuinen/1.png" alt="Buurrtuin Oss">
                 <h4>BergbOSS</h4><span>Oss</span>
                 <div class="user user-xs">
-                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                     <img class="user" src="./Assets/img/buurttuinen/user-bergboss.png" alt="Marije">
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
+            </a>
+             <a href="#" class="buurttuin">
+                <img src="./Assets/img/buurttuinen/StJozef.png" alt="Buurrtuin StJozef">
+                <h4>St Jozefschool</h4><span>Geldrop</span>
+                <div class="user user-xs">
+                     <img class="user" src="./Assets/img/buurttuinen/user-placeholder.png" alt="Marije">
+                </div>
+                <p>
+                    De tuin begint bij de kleuters en groeit later uit naar de hogere klassen van de school, die in een ander gebouw zitten. Enthousiaste ouders namen het initiatief voor de tuin, de school faciliteert en stelt ruimte en tijd beschikbaar. De tuinbakken zijn beschilderd door de kleuters. Het materiaal voor de tuin werd onder andere verzameld door een oproep in de schoolnieuwsbrief waarna verschillende ouders zand, plantjes en tuingereedschap beschikbaar stelde.
+                </p>
             </a>
             <a href="#" class="buurttuin">
                 <img src="./Assets/img/buurttuinen/2.png" alt="Buurrtuin Oss">
                 <h4>BergbOSS</h4><span>Oss</span>
                 <div class="user user-xs">
-                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                     <img class="user" src="./Assets/img/buurttuinen/user-placeholder.png" alt="Marije">
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
             </a>
@@ -50,7 +60,7 @@
                 <img src="./Assets/img/buurttuinen/3.png" alt="Buurrtuin Oss">
                 <h4>BergbOSS</h4><span>Oss</span>
                 <div class="user user-xs">
-                     <img class="user" src="./Assets/img/marije-cutout.jpg" alt="Marije">
+                     <img class="user" src="./Assets/img/buurttuinen/user-placeholder.png" alt="Marije">
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, excepturi? Accusantium similique qui ab sed ipsam, saepe praesentium non labore laborum ut iusto, expedita aperiam dignissimos nulla animi eaque. Blanditiis!</p>
             </a>
@@ -129,15 +139,36 @@
        </div>
    </footer>
 
-       
-    <script>
-      function initMap() {
-        var centerlocation = {lat: 51.196074, lng: 5.200653};
+        <!--var centerlocation = {lat: 51.196074, lng: 5.200653};
         var DenBosch = {lat: 51.697816, lng: 5.303675};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
-          center: centerlocation,
-        styles: [
+      -->
+
+    <script>
+ 
+       
+
+        function initMap() {
+            var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+         panControl: true,
+        mapTypeControl: false,
+        panControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        scaleControl: false,
+        streetViewControl: false,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        zoom: 8,
+        maxZoom: 10,
+    styles: [
     {
         "featureType": "administrative",
         "elementType": "labels.text.fill",
@@ -244,15 +275,76 @@
         ]
     }
 ]
-        });
-
-
+    };
+                    
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
         
-        var marker = new google.maps.Marker({
-          position: DenBosch,
-          map: map
+    // Multiple Markers
+    var markers = [
+        ['Den Bosch', 51.697816,5.303675],
+        ['Palace of Westminster, London', 51.761180,5.514048]
+    ];
+                        
+    // Info Window Content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h3>London Eye</h3>' +
+        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+        ['<div class="info_content">' +
+        '<h3>Palace of Westminster</h3>' +
+        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+        '</div>']
+    ];
+        
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+    
+    // Loop through our array of markers & place each one on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0],
+            icon: 'Assets/img/marker.png'
         });
+        
+        // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // function showVisible() {
+         
+    //     var bounds = new google.maps.LatLngBounds();
+        
+    //     // showing only 2 visible 1 hidden (because of markers.length-1)
+    //     for(var i=0; i<markers.length-1; i++) {
+        
+    //         markers[i].setVisible(true);
+            
+    //         // extending bounds to contain this visible marker position
+    //         bounds.extend( markers[i].getPosition() );
+    //     }
+        
+    //     // setting new bounds to visible markers of 2
+    //     map.fitBounds(bounds);
+
+    // }
+
+     
+
       }
+    
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsYeOZ8MBS4Ss6EuaB3sSaagEsS3ZBl_E&callback=initMap"></script>
 
